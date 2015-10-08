@@ -25,21 +25,21 @@ function [ L ] = evaluateLikelihood(state, settings)
     %For compatibility
     parameters = struct;
     if state.ps > 0
-        parameters.W.Phi = transpose(state.arParameters);
+        phi = transpose(state.arParameters);
     else
-        parameters.W.Phi = [];
+        phi = [];
     end;
     if state.qs > 0
-        parameters.W.Theta = [1 transpose(state.maParameters)];
+        theta = [1 transpose(state.maParameters)];
     else
-        parameters.W.Theta = 1;
+        theta = 1;
     end;
 
     p = state.ps;
     q = state.qs;
-    parameters.Sigma = state.sigmaEs^2;
+    sigmaE = state.sigmaEs^2;
 
-    r = max(parameters.W.p,parameters.W.q+1);
+    r = max(p,q+1);
     T = length(settings.data);
 
     % Build matrices of state space representation:
@@ -49,10 +49,10 @@ function [ L ] = evaluateLikelihood(state, settings)
     %
 
     A = zeros(r,r); R = zeros(r,1); Z = zeros(r,1);
-    A(1:p,1)=parameters.W.Phi(:); 
+    A(1:p,1)=phi(:); 
     A(1:r-1,2:r)=eye(r-1);
-    R(1:q+1) = parameters.W.Theta(:);
-    Z(1) = 1; Q = parameters.Sigma*R*R';
+    R(1:q+1) = theta(:);
+    Z(1) = 1; Q = sigmaE*R*R';
 
     % Initialize state and covariance matrix
     xhat_tt  = zeros(r,1);

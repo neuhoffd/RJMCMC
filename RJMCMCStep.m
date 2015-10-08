@@ -2,7 +2,7 @@ function [newState, draw] = RJMCMCStep(oldState, settings)
     newState = oldState;
     
     %Get draw
-    draw = settings.getDrawARMA(oldState, settings);    
+    draw = getDraw(oldState, settings);    
 
     %Evaluate joint log posterior
     [draw.logPosterior] = evaluatePosterior(draw, settings);
@@ -13,8 +13,7 @@ function [newState, draw] = RJMCMCStep(oldState, settings)
     %Accept draw with probability alpha
     if rand <= exp(min(alpha,0))
        % Accept the candidate
-        newState.logPosterior = draw.logPosterior; 
-        newState.logProposal = draw.logProposal;
+        newState.logPosterior = draw.logPosterior;
         if draw.ps > 0
             newState.arParameters = draw.arParameters;
             newState.arPacs = draw.arPacs;

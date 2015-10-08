@@ -16,13 +16,14 @@ function [states, accepted] = doRJMCMC(settings)
 
     %Initialize states
     states(settings.draws) = getEmptyStateStruct();
-    draw = getEmptyDrawStruct();
+    
+    states(1) = getInitialState(settings);
 
-    accepted=0;
+    accepted = 0;
 
     %Iterate until settings.draws is reached
     for cntrDraws = 2:settings.draws   
-        [state, draw] = RJMCMCStep(states(cntrDraws-1), draw, settings);
+        [state, draw] = RJMCMCStep(states(cntrDraws-1), settings);
         if settings.saveProposals
             PROPOSALS_GLOBAL(cntrDraws) = draw;
         end;
