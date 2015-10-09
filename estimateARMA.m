@@ -41,3 +41,5 @@ else
     save(settings.resultsFile,'arParametersSeries', 'maParametersSeries', 'sigmaESeries', 'pSeries', 'qSeries', 'arPacsSeries',...
     'maPacsSeries', 'logPosteriorSeries', 'accepted',  'settings');
 end;  
+
+displayResults;
