@@ -4,3 +4,6 @@ This quantlet contains a small suite enabling the user to estimate ARMA time ser
 
 The sampler provided here assumes zero-mean stationary ARMA models with normal disturbances as in Neuhoff (2015) or Meyer-Gohde and Neuhoff (2015). The sampler settings and data source can be set in the file "getSettings.m". It is also possible to replace all prior distributions, proposal distributions, as well as the Likelihood functions via setting the appropriate function handles in this file. This framework can thus be also employed to estimate ARMA models with non-normal disturbances. Furthermore, any proposal distribution can be used. For further information please refer to the comments in "getSettings.m".
 
+In order to run the sampler, set the desired options in "getSettings.m" and run estimateARMA.m.
+
+Tested on Matlab R2015a running on Windows Server 2014 and Windows 7 Professional.
