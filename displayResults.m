@@ -31,7 +31,7 @@
                 temp2 = temp;
                 temp2(isnan(temp2))= 0;                
                 plot(cumsum(temp2) ./ cumsums);
-                title(['Unconditional Recursive Mean MA Parameters ' num2str(i)]);
+                title(['Unconditional Recursive Mean MA Parameter ' num2str(i)]);
             end;
             temp = temp(settings.burnIn+1:end);
             disp(['Mean:        ' num2str(mean(temp(isfinite(temp)==1)))]);
