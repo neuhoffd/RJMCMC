@@ -1,4 +1,30 @@
-% clear all; 
+%--------------------------------------------------------------------------
+% Name of Quantlet: TSARMARJMCMC
+%--------------------------------------------------------------------------
+% Published in: Univariate Time Series
+%--------------------------------------------------------------------------
+% Description: Estimate univariate, stationary Autoregressive Moving 
+%               Average (ARMA) models using Reversible Jump Markov Chain 
+%               Monte Carlo
+%--------------------------------------------------------------------------
+% Keywords: Kalman filter, Markov, PACF, arma, stationary, univariate
+%--------------------------------------------------------------------------
+% See also: -
+%--------------------------------------------------------------------------
+% Author: Daniel Neuhoff, Alexander Meyer-Gohde
+%--------------------------------------------------------------------------
+% Submitted: Mon, October 12 2015 by neuhoffd
+%--------------------------------------------------------------------------
+% Datafile: -
+%--------------------------------------------------------------------------
+% Input: Any zero-mean stationary univariate time series
+%--------------------------------------------------------------------------
+% Output: Posterior distribution of parameters and orders of lag polynomials
+%           Mean and median estimates for parameters
+%--------------------------------------------------------------------------
+
+
+clear all; 
 close all; home; format long g;  rng('shuffle');
 
 settings = getSettings();
