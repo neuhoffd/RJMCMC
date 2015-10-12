@@ -6,7 +6,7 @@
         disp(['Order: ', num2str(i)]);
         if i <= size(arParametersSeries,1)
             temp=arParametersSeries(i,:);
-            if doPlots
+            if settings.doPlots
                 figure;
                 temp2 = temp;
                 temp2(isnan(temp2))= 0;                
@@ -26,7 +26,7 @@
         disp(['Order: ', num2str(i)]);
         if i <= size(maParametersSeries,1)
             temp=maParametersSeries(i,:);
-            if doPlots
+            if settings.doPlots
                 figure;
                 temp2 = temp;
                 temp2(isnan(temp2))= 0;                
@@ -43,7 +43,7 @@
     
     disp('Unconditional Mean and Median Sigma');
     temp = sigmaESeries(settings.burnIn+1:end);
-    if doPlots
+    if settings.doPlots
         figure;
         plot(cumsum(temp) ./ cumsums);
         title(['Unconditional Recursive Mean Sigma']);
@@ -75,7 +75,7 @@
         disp(['Order: ', num2str(i)]);
         if i <= size(arParametersSeries,1)
             temp=arParametersSeries(i,settings.burnIn+1:end);
-            if doPlots & (i <= pPostMax)
+            if settings.doPlots & (i <= pPostMax)
                 figure;
                 plot(transpose(cumsum(temp(pqSieve))) ./ cumsum(pqSieve(pqSieve == 1)));
                 title(['Conditional Recursive Mean AR Parameter ' num2str(i)]);
@@ -93,7 +93,7 @@
         disp(['Order: ', num2str(i)]);
         if i <= size(maParametersSeries,1)
             temp=maParametersSeries(i,settings.burnIn+1:end);
-            if doPlots & (i <= qPostMax)
+            if settings.doPlots & (i <= qPostMax)
                 figure;
                 plot(transpose(cumsum(temp(pqSieve))) ./ cumsum(pqSieve(pqSieve == 1)));
                 title(['Conditional Recursive Mean MA Parameter ' num2str(i)]);
@@ -108,7 +108,7 @@
     
     disp('Conditional Mean and Median Sigma');
     temp = sigmaESeries(settings.burnIn+1:end);
-    if doPlots
+    if settings.doPlots
         figure;
         plot(cumsum(temp(pqSieve)) ./ cumsum(pqSieve(pqSieve == 1)));
         title(['Conditional Recursive Mean Sigma']);
