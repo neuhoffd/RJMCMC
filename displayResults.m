@@ -42,14 +42,13 @@
     end;
     
     disp('Unconditional Mean and Median Sigma');
-    temp = sigmaESeries(settings.burnIn+1:end);
     if settings.doPlots
         figure;
-        plot(cumsum(temp) ./ cumsums);
+        plot(cumsum(transpose(sigmaESeries)) ./ cumsums);
         title(['Unconditional Recursive Mean Sigma']);
     end;
-    disp(['Mean: ' num2str(mean(temp))]);
-    disp(['Median: ' num2str(median(temp))]);
+    disp(['Mean: ' num2str(mean(sigmaESeries(settings.burnIn+1:end)))]);
+    disp(['Median: ' num2str(median(sigmaESeries(settings.burnIn+1:end)))]);
 
    
     pqMatrix = [pSeries(settings.burnIn+1:end) qSeries(settings.burnIn+1:end)];
@@ -75,7 +74,7 @@
         disp(['Order: ', num2str(i)]);
         if i <= size(arParametersSeries,1)
             temp=arParametersSeries(i,settings.burnIn+1:end);
-            if settings.doPlots & (i <= pPostMax)
+            if settings.doPlots && (i <= pPostMax)
                 figure;
                 plot(transpose(cumsum(temp(pqSieve))) ./ cumsum(pqSieve(pqSieve == 1)));
                 title(['Conditional Recursive Mean AR Parameter ' num2str(i)]);
@@ -93,7 +92,7 @@
         disp(['Order: ', num2str(i)]);
         if i <= size(maParametersSeries,1)
             temp=maParametersSeries(i,settings.burnIn+1:end);
-            if settings.doPlots & (i <= qPostMax)
+            if settings.doPlots && (i <= qPostMax)
                 figure;
                 plot(transpose(cumsum(temp(pqSieve))) ./ cumsum(pqSieve(pqSieve == 1)));
                 title(['Conditional Recursive Mean MA Parameter ' num2str(i)]);
