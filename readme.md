@@ -6,8 +6,8 @@ The sampler provided here assumes zero-mean stationary ARMA models with normal d
 
 The sampler settings and data source can be set in the file "getSettings.m". It is also possible to replace all prior distributions, proposal distributions, as well as the Likelihood functions via setting the appropriate function handles in this file. This framework can thus be also employed to estimate ARMA models with non-normal disturbances. Furthermore, any proposal distribution can be used. For further information please refer to the comments in "getSettings.m".
 
-In order to run the sampler, set the desired options in "getSettings.m" and run "estimateARMA.m". To display the results, run "displayResults.m". Depending on the value of the variable settings.doPlots to be set in "getSettings.m", this script will also plot the conditional and unconditional posterior averages for the parameters.
+In order to run the sampler, set the desired options in "getSettings.m" and run "estimateARMA.m". To display the results, run "displayResults.m". Depending on the value of the variable settings.doPlots to be set in "getSettings.m", this script will also plot the conditional and unconditional posterior averages for the parameters. Some synthetic data for testing is provided in testdata.mat. The data was generated from an AR(1) process with the standard deviation of the error term set to 0.9. The sample size is 250.
 
-To install the sampler, you can download all necessary files by clicking on "Download as Zip" on the right. Extract the files to a directory of your choosing, navigate there within Matlab or add it to the Matlab path.
+To install the sampler, you can download all necessary files by clicking on "Download ZIP" on the right. Extract the files to a directory of your choosing, navigate there within Matlab or add it to the Matlab path.
 
 Tested on Matlab R2015a running on Windows Server 2014 and Windows 7 Professional. Utilizes the Statistics Toolbox.
