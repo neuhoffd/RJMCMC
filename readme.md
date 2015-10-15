@@ -8,4 +8,6 @@ The sampler settings and data source can be set in the file "getSettings.m". It 
 
 In order to run the sampler, set the desired options in "getSettings.m" and run "estimateARMA.m". To display the results, run "displayResults.m". Depending on the value of the variable settings.doPlots to be set in "getSettings.m", this script will also plot the conditional and unconditional posterior averages for the parameters.
 
-Tested on Matlab R2015a running on Windows Server 2014 and Windows 7 Professional.
+To install the sampler, you can download all necessary files by clicking on "Download as Zip" on the right. Extract the files to a directory of your choosing, navigate there within Matlab or add it to the Matlab path.
+
+Tested on Matlab R2015a running on Windows Server 2014 and Windows 7 Professional. Utilizes the Statistics Toolbox.
