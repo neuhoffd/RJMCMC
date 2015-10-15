@@ -10,4 +10,4 @@ In order to run the sampler, set the desired options in "getSettings.m" and run 
 
 To install the sampler, you can download all necessary files by clicking on "Download ZIP" on the right. Extract the files to a directory of your choosing, navigate there within Matlab or add it to the Matlab path.
 
-Tested on Matlab R2015a running on Windows Server 2014 and Windows 7 Professional. Utilizes the Statistics Toolbox.
+Tested on Matlab R2015a running on Windows Server 2014 and Windows 7 Professional. Utilizes the Statistics Toolbox. Note that the sampler requires significant amounts of RAM depending on the number of draws. At least 8 GB are recommended!
