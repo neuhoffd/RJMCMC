@@ -1,16 +1,5 @@
 function [states, accepted] = doRJMCMC(settings)
 
-    %Create struct to save state of chain
-    %Structure:
-    %.arPacs: AR Partial Autocorrelations
-    %.maPacs: MA Inverse Partial Autocorrelations
-    %.logPosterior:  Value of Log-Posterior at state
-    %.p: AR order
-    %.q: MA order
-    %.sigmaEs: Shock standard deviation
-    %.arParameters: Column vector of AR-Parameters
-    %.maParameters: Column vector of MA-Parameters
-
     global PROPOSALS_GLOBAL
     clear states;
 
