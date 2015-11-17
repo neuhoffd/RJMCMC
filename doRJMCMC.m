@@ -23,10 +23,10 @@ function [states, accepted] = doRJMCMC(settings)
         accepted = accepted + draw.accepted;
         states(cntrDraws) = state; 
 
-        %Report every 10000th draw
-        if mod(cntrDraws,10000) == 0
-            disp(['Iteration ' num2str(cntrDraws) '; Acceptance rate ' num2str(accepted/cntrDraws) ]);
-        end;
+%       Report every 10000th draw - DEACTIVATED FOR PROGRESSBAR
+%         if mod(cntrDraws,10000) == 0
+%             disp(['Iteration ' num2str(cntrDraws) '; Acceptance rate ' num2str(accepted/cntrDraws) ]);
+%         end;
     end;
     
     progressbar(1);
