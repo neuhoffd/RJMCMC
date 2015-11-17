@@ -9,10 +9,13 @@ function [states, accepted] = doRJMCMC(settings)
     states(1) = getInitialState(settings);
 
     accepted = 0;
+    
+    progressbar;
 
     %Iterate until settings.draws is reached
     for cntrDraws = 2:settings.draws   
         [state, draw] = RJMCMCStep(states(cntrDraws-1), settings);
+        progressbar(cntrDraws/settings.draws);
         if settings.saveProposals
             PROPOSALS_GLOBAL(cntrDraws) = draw;
         end;
@@ -25,4 +28,6 @@ function [states, accepted] = doRJMCMC(settings)
             disp(['Iteration ' num2str(cntrDraws) '; Acceptance rate ' num2str(accepted/cntrDraws) ]);
         end;
     end;
+    
+    progressbar(1);
 end
