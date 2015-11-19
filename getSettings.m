@@ -35,6 +35,7 @@ settings.saveProposals = 1;
 
 %Plot posteriors?
 settings.doPlots = 1;
+settings.priorPosteriorPlots = 1;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Initial State                                                         %
