@@ -158,5 +158,15 @@ if settings.priorPosteriorPlots && settings.doPlots
         title(['MA PAC ' num2str(cntr)]);
         legend('Conditional Posterior','Prior');
     end;
+    
+    temp = sigmaESeries(settings.burnIn+1:end);
+    temp = temp(pqSieve);
+    figure;
+    hold on;
+    [f, xi] = ksdensity(temp);
+    plot(xi,f,'k','LineWidth',1.5);
+    ezplot(@(x) settings.priorsARMA.priorSigmaE(x),[-0.1,max(temp)+1]);
+    title(['\sigma_\epsilon']);
+    legend('Conditional Posterior','Prior');
 
 end;
